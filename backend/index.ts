@@ -1,14 +1,15 @@
 import bodyParser from 'body-parser';
 import express from 'express';
-import Logger, { logCallDuration } from './common/logger';
+import Logger, { logCallDuration } from './utils/logger/logger';
 import session from 'express-session';
-import './common/env';
+import './utils/enviorment/enviorment';
 import typeOrmConfig from './middleware/typeorm';
+import errorHandler from './middleware/error-handler';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
 const MySQLStore = require('express-mysql-session')(session);
 const app = express();
-const port: number = Number.parseInt(process.env.EXPRESS_PORT as string, 10);
+const port: number = Number.parseInt(process.env.EXPRESS_PORT as string, 10) || 5000;
 const sessionMaxage: number = Number.parseInt(process.env.SESSION_MAXAGE as string, 10);
 const sessionSecret: string = process.env.SESSION_SECRET as string;
 const sessionName: string = process.env.SESSION_NAME as string;
@@ -62,6 +63,8 @@ app.use(
 );
 
 typeOrmConfig();
+
+app.use(errorHandler);
 
 app.listen(port, () => {
     Logger.info(`application up and running on port ${port}`);

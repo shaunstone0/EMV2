@@ -1,4 +1,4 @@
-import Logger from '../common/logger';
+import Logger from '../utils/logger/logger';
 import { createConnection as typeOrmCreateConnection } from 'typeorm';
 import configAppUser = require('../config/typeorm-config-admin');
 
