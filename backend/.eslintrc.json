@@ -1,0 +1,68 @@
+    {
+    "env": {
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:jsdoc/recommended",
+        "plugin:unicorn/recommended",
+        "prettier/prettier",
+        "prettier/@typescript-eslint",
+        "prettier/standard",
+        "prettier/unicorn",
+        "prettier",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": ["./tsconfig.eslint.json"],
+        "sourceType": "module"
+    },
+    "rules": {
+        "unicorn/filename-case": [
+            "warn",
+            {
+                "cases": {
+                   "kebabCase": true
+                }
+            }
+        ],
+        "@typescript-eslint/no-require-imports": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+
+
+
+        "max-len": [ "error", { "code": 120, "ignorePattern": "^import"}],
+        "no-invalid-this": "error",
+        "no-duplicate-case": "error",
+        "arrow-body-style": ["error", "as-needed"],
+        "spaced-comment": ["error", "always", {
+            "line": {
+                "markers": ["/"],
+                "exceptions": ["-", "+"]
+            },
+            "block": {
+                "markers": ["!"],
+                "exceptions": ["*"],
+                "balanced": true
+            }
+        }],
+        "curly": "error",
+        "guard-for-in": "error",
+        "no-debugger": "error",
+        "no-empty": "error",
+        "eqeqeq": ["error", "allow-null"]
+
+
+
+
+    },
+   "plugins": ["@typescript-eslint", "jsdoc", "import", "prefer-arrow", "unicorn", "prettier"]
+}
