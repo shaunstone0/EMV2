@@ -1,9 +1,17 @@
-import { BeforeInsert, BeforeUpdate, Column, Entity, Index, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+    BeforeInsert,
+    BeforeUpdate,
+    Column,
+    Entity,
+    Index,
+    OneToOne,
+    PrimaryGeneratedColumn,
+    JoinColumn,
+} from 'typeorm';
 import { EncryptedColumn } from 'typeorm-encrypted-column';
 import encryptionOptions from '../../config/typeorm-encryption-options';
 import { Profile } from './profile';
 import { hash, genSalt, compare } from 'bcrypt';
-import { JoinColumn } from 'typeorm/browser';
 import { Role } from './role';
 
 @Entity('user')
@@ -35,14 +43,14 @@ export class User {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
     })
-    @JoinColumn()
+    @JoinColumn({ name: 'role_id' })
     public role_id: Role;
 
     @OneToOne(() => Profile, (profile: Profile) => profile.user_id, {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
     })
-    @JoinColumn()
+    @JoinColumn({ name: 'profile_id' })
     public profile: Profile;
 
     @BeforeInsert()

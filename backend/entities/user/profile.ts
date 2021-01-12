@@ -1,8 +1,7 @@
-import { Column, Entity, Index, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, OneToOne, PrimaryGeneratedColumn, JoinColumn } from 'typeorm';
 import { EncryptedColumn } from 'typeorm-encrypted-column';
 import encryptionOptions from '../../config/typeorm-encryption-options';
 import { User } from './user';
-import { JoinColumn } from 'typeorm/browser';
 import { Country } from './country';
 
 @Entity('profile')
@@ -97,12 +96,12 @@ export class Profile {
     })
     public zipcode: string;
 
-    @OneToOne(() => Country, (country: Country) => country.code, {
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
-    })
-    @JoinColumn()
-    public country_id: Country;
+    // @OneToOne(() => Country, (country: Country) => country.code, {
+    //     onDelete: 'CASCADE',
+    //     onUpdate: 'CASCADE',
+    // })
+    // @JoinColumn({ name: 'country_id' })
+    // public country_id: Country;
 
     @EncryptedColumn(encryptionOptions)
     @Column('varchar', {

@@ -5,6 +5,7 @@ import session from 'express-session';
 import './utils/enviorment/enviorment';
 import typeOrmConfig from './middleware/typeorm';
 import errorHandler from './middleware/error-handler';
+import routerHandler from './api/routes';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
 const MySQLStore = require('express-mysql-session')(session);
@@ -64,7 +65,9 @@ app.use(
 
 typeOrmConfig();
 
-app.use(errorHandler);
+app.use('/api/v1', routerHandler);
+
+// app.use(errorHandler);
 
 app.listen(port, () => {
     Logger.info(`application up and running on port ${port}`);
