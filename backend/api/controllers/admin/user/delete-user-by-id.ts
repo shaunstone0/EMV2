@@ -4,16 +4,20 @@ import { getRepository } from 'typeorm';
 import asyncHandler from '../../../../middleware/async-handler';
 import ErrorResponse from '../../../../utils/error-response/error-response';
 
-const getUserById = asyncHandler(
+const deleteSingleUser = asyncHandler(
     async (request: Request, response: Response, next: NextFunction): Promise<void> => {
         const user = await getRepository(User).findOne(request.params.id);
 
-        if (!user?.id) {
-            return next(new ErrorResponse(`No user was found with id of ${request.params.id}`, 404));
+        if (user?.id) {
+            await getRepository(User).softDelete(user.id);
         }
 
-        response.status(200).json({ success: true, data: user });
+        if (!user?.id) {
+            return next(new ErrorResponse(`no user was found with ${request.params.id}`, 404));
+        }
+
+        response.status(200).json({ success: true });
     },
 );
 
-export default getUserById;
+export default deleteSingleUser;
