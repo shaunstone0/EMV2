@@ -48,7 +48,7 @@ CREATE TABLE `user`
     `id` varchar(36) NOT NULL,
     `email` varchar(36)  NULL,
     `password` varchar(255)  NULL,
-    `role_id` varchar(36) NOT NULL,
+    `role_id` varchar(36) NULL,
     `profile_id` varchar(36) NOT NULL,
     `dateCreated` varchar(255) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `dateUpdated` varchar(255) NULL,
@@ -61,6 +61,20 @@ CREATE TABLE `user`
         ON UPDATE NO ACTION
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+
+
+
+
+CREATE TRIGGER role_id_trigger
+    BEFORE INSERT ON `user`
+    FOR EACH ROW
+BEGIN
+    IF NEW.role_id IS NULL THEN
+        SET NEW.role_id = (SELECT `id` FROM `role` WHERE `role_name` = 'user');
+    END IF;
+END;
+
 
 
 --

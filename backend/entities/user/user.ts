@@ -28,6 +28,7 @@ export class User {
         nullable: true,
         length: 100,
         name: 'email',
+        unique: true,
     })
     public email: string;
 
@@ -36,6 +37,7 @@ export class User {
         nullable: false,
         length: 255,
         name: 'password',
+        select: false,
     })
     public password: string;
 
@@ -51,7 +53,7 @@ export class User {
         onUpdate: 'CASCADE',
     })
     @JoinColumn({ name: 'profile_id' })
-    public profile: Profile;
+    public profile_id: Profile;
 
     @BeforeInsert()
     @BeforeUpdate()
