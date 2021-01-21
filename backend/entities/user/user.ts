@@ -64,7 +64,7 @@ export class User {
         }
     }
 
-    public async matchPassword(userPassword: string): Promise<boolean> {
+    async matchPassword(userPassword: string): Promise<boolean> {
         return await compare(userPassword, this.password);
     }
 }

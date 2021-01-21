@@ -4,5 +4,5 @@ const userRouter = require('./admin/user/user-routes');
 const authRouter = require('./auth/auth-routes');
 
 router.use('/admin/users', userRouter);
-router.use('/auth/register', authRouter);
+router.use('/auth', authRouter);
 export default router;

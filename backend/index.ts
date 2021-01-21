@@ -35,7 +35,7 @@ const storeOptions = {
     expiration: sessionMaxage,
     clearExpired: true,
     checkExpirationInterval: 90000,
-    createDatabaseTable: false,
+    createDatabaseTable: true,
     charset: 'utf8mb4_general_ci',
     schema: {
         tableName: 'session',
@@ -50,11 +50,13 @@ const storeOptions = {
 const sessionStore = new MySQLStore(storeOptions);
 app.use(
     session({
+        name: 'sid',
         secret: sessionSecret,
         store: sessionStore,
         resave: false,
         saveUninitialized: false,
         cookie: {
+            httpOnly: false,
             sameSite: true,
             secure: false, // TODO: SET TO TRUE ON PRODUCTION ENVIRONMENT
             maxAge: sessionMaxage,
