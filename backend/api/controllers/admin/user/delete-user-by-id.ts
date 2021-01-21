@@ -8,7 +8,7 @@ const deleteSingleUser = asyncHandler(
     async (request: Request, response: Response, next: NextFunction): Promise<void> => {
         const user = await getRepository(User).findOne(request.params.id);
 
-        if (user?.id) {
+        if (user && user.id) {
             await getRepository(User).softDelete(user.id);
         }
 
