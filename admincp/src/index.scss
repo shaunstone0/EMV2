@@ -1,0 +1,82 @@
+@import './styles/_colors.scss';
+@import './styles/_fonts.scss';
+@import './styles/_sizing.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $main-font;
+    background-color: $body-color;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.justify-space-even {
+    justify-content: space-evenly;
+}
+
+.justify-space-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    padding: 5px 10px 5px 10px;
+}
+
+p {
+    padding: 0 0 0 10px;
+}
+
+.faded-text {
+    color: $gray-500;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+//Testing Purposes
+
+.border-red {
+    border: 1px solid red;
+}
+
+.border-blue {
+    border: 1px solid blue;
+}
+
+@import 'components/Shared/Card/Card';
+@import 'components/Shared/Container/Container';
+@import 'components/Shared/StatisticCard/StatisticCard';
+
+@import 'components/Header/Header';
+@import 'components/Sidebar/Sidebar.scss';
+@import 'components/Dashboard/Main/Main';
+@import 'components/Dashboard/Active-Users/Active-Users';
+@import 'components/Dashboard/Active-Users/Active-User-Table/Active-User-Table';

@@ -1,0 +1,47 @@
+$header-size: 75px;
+$sidebar-min-width: 290px;
+.sidebar {
+    position: fixed;
+    height: 95vh;
+    width: $width-spacing--15p;
+    min-width: $sidebar-min-width;
+    background-color: $white;
+    border-radius: 0.25rem;
+    border: 1px solid $gray-300;
+    box-shadow: $box-shadow;
+    margin-left: $spacer-5;
+    margin-top: $spacer-4;
+}
+
+.header {
+    width: $width-spacing--100p;
+    height: $header-size;
+    padding: 10px;
+    background-color: $gray-100;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid $gray-300;
+
+    &--container {
+        height: 55px;
+    }
+
+    &--title {
+        font-size: 14px;
+        font-weight: bold;
+        color: $dark-color;
+    }
+    &--icon {
+        width: 10%;
+        margin-right: $spacer-2;
+        margin-left: $spacer;
+    }
+}
+
+.brown-color {
+    color: $cp-icon-color;
+}
+
+.minus {
+    color: $gray-400;
+}

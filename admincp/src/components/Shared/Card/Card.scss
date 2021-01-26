@@ -1,0 +1,29 @@
+.card {
+    background-color: $white;
+    border-radius: 0.25rem;
+    border: 1px solid $gray-300;
+    min-width: 400px;
+
+    &__fullWidth {
+        width: 100%;
+        background-color: $white;
+        border-radius: 0.25rem;
+        border: 1px solid $gray-300;
+    }
+
+    &__header {
+        width: 100%;
+        justify-self: flex-start;
+        background: $gray-100;
+        border-top-left-radius: $spacer-1;
+        border-top-right-radius: $spacer-1;
+        padding: $spacer-2 0 $spacer-2 $spacer-3;
+        font-size: 15px;
+        border-bottom: 1px solid $gray-300;
+        color: $font-color-dark;
+    }
+
+    &__icon {
+        margin-right: $spacer-3;
+    }
+}
