@@ -1,0 +1,32 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "node": true
+    },
+    "extends": [
+        "standard",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "simple-import-sort"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error", {}, { "usePrettierrc": true }],
+        "simple-import-sort/imports": "error",
+        "sort-imports": "off",
+        "import/order": "off"
+    }
+}

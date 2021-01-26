@@ -1,0 +1,35 @@
+$side-bar-container-min-width: 350px;
+
+.container {
+    height: 100vh;
+
+    &__fullWidth {
+        width: 100%;
+    }
+    &__side-bar {
+        width: $width-spacing--20p;
+        min-width: $side-bar-container-min-width;
+        min-height: 100vh;
+    }
+    &__main-content {
+        padding: $spacer-4 $spacer-5 0 0;
+        width: 85%;
+
+        &--header {
+            color: $dark-color;
+        }
+
+        &--sub-text {
+            font-size: 13px;
+        }
+
+        &--user-area {
+            width: $width-spacing--10p;
+            font-size: 16px;
+        }
+    }
+
+    .notification-bell {
+        color: $dark-color;
+    }
+}

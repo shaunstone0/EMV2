@@ -1,0 +1,53 @@
+.statistic-container {
+    width: $width-spacing--100p;
+    padding-left: $spacer-2;
+    border-radius: 0;
+    font-size: 14px;
+
+    .card {
+        margin: $spacer-3 $spacer-2 0 0;
+        color: $gray-600;
+        padding: $spacer-4;
+
+        &:last-child {
+            margin: $spacer-3 0 0 0;
+        }
+
+        .faded-text {
+            font-size: 13px;
+            padding: $spacer-1 0 0 0;
+        }
+    }
+
+    &__number {
+        font-size: 23px;
+    }
+
+    &__w-31 {
+        width: 31%;
+        margin-top: 10px;
+    }
+
+    &__icon {
+        margin-right: $spacer-3;
+        font-size: 20px;
+        min-height: 50px;
+        min-width: 50px;
+        border-radius: 50%;
+
+        &--user {
+            color: $blue-color;
+            background-color: $blue-shade;
+        }
+
+        &--newUser {
+            color: $orange-color;
+            background-color: $orange-shade;
+        }
+
+        &--articles {
+            color: $red-color;
+            background: $red-shade;
+        }
+    }
+}
